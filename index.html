@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post Onboarding Insights | Industry & Revenue Cloud | Sep 2026 MBR</title>
+<style>
+  :root {
+    --bg: #032D60;
+    --card: #0A2848;
+    --card-hover: #0D3260;
+    --blue: #0070D2;
+    --blue-light: #4FBDE8;
+    --text: #E8F4FD;
+    --text-muted: #7BAECB;
+    --gold: #E6A800;
+    --gold-light: #FFD350;
+    --green: #2ECC71;
+    --green-dark: #0A7A3A;
+    --red: #E74C3C;
+    --red-dark: #5C1A1A;
+    --amber: #F39C12;
+    --border: rgba(79, 189, 232, 0.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  /* ── TOP NAV ── */
+  .topbar {
+    background: linear-gradient(90deg, #0070D2 0%, #032D60 100%);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid var(--blue);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  }
+  .topbar .logo { font-size: 18px; font-weight: 700; letter-spacing: 1px; padding: 14px 0; color: #fff; white-space: nowrap; }
+  .topbar .logo span { color: var(--gold); }
+  .nav-tabs { display: flex; gap: 2px; margin-left: auto; }
+  .nav-tab {
+    padding: 14px 18px; cursor: pointer; color: rgba(255,255,255,0.65);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+    border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;
+  }
+  .nav-tab:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.4); }
+  .nav-tab.active { color: #fff; border-bottom-color: var(--gold); }
+
+  /* ── SECTIONS ── */
+  .section { display: none; padding: 32px; min-height: calc(100vh - 54px); }
+  .section.active { display: block; }
+
+  /* ── HERO ── */
+  .hero {
+    text-align: center; padding: 60px 32px 48px;
+  }
+  .hero .eyebrow {
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--blue-light); margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 42px; font-weight: 800; letter-spacing: -0.5px; color: #fff; margin-bottom: 12px;
+  }
+  .hero .sub {
+    font-size: 20px; color: var(--blue-light); margin-bottom: 24px; font-weight: 300;
+  }
+  .hero .divider {
+    width: 80px; height: 3px; background: var(--gold);
+    margin: 0 auto 24px; border-radius: 2px;
+  }
+  .hero .meta {
+    display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+  }
+  .hero .meta span {
+    font-size: 13px; color: var(--text-muted);
+  }
+  .hero .meta strong { color: var(--text); }
+
+  /* ── SECTION HEADER ── */
+  .section-header { margin-bottom: 28px; }
+  .section-header h2 {
+    font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 6px;
+  }
+  .section-header p { color: var(--text-muted); font-size: 13px; }
+
+  /* ── CARDS GRID ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+  .metric-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .metric-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+  .metric-card.red { background: var(--red-dark); border-color: rgba(231,76,60,0.35); }
+  .metric-card .card-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 12px;
+  }
+  .metric-card .card-value {
+    font-size: 48px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 10px;
+  }
+  .metric-card.red .card-value { color: #FF8A80; }
+  .metric-card .card-delta {
+    font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 6px;
+  }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0;
+  }
+  .dot.green { background: var(--green); }
+  .dot.red { background: var(--red); }
+  .card-glow {
+    position: absolute; top: 0; right: 0; width: 60px; height: 60px;
+    border-radius: 50%; filter: blur(30px); opacity: 0.15;
+  }
+  .card-glow.green { background: var(--green); }
+  .card-glow.red { background: var(--red); }
+
+  /* ── NOTICE BOX ── */
+  .notice {
+    background: rgba(243,156,18,0.1); border: 1px solid rgba(243,156,18,0.35);
+    border-radius: 8px; padding: 14px 18px; display: flex; align-items: flex-start; gap: 12px;
+    margin-bottom: 20px;
+  }
+  .notice .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .notice p { color: var(--amber); font-size: 13px; line-height: 1.6; }
+
+  /* ── TWO-COLUMN LAYOUT ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* ── DATA CARD ── */
+  .data-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+  }
+  .data-card .dc-header {
+    padding: 14px 20px; background: rgba(0,112,210,0.25);
+    border-bottom: 1px solid var(--border);
+    font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--blue-light);
+  }
+  .data-card .dc-body { padding: 20px; }
+
+  /* ── TABLE ── */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; color: var(--blue-light);
+    background: rgba(0,112,210,0.15); border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 12px 14px; border-bottom: 1px solid rgba(79,189,232,0.08);
+    font-size: 13px; color: var(--text);
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,255,255,0.03); }
+  .data-table .total-row td { font-weight: 700; color: #fff; border-top: 1px solid var(--border); background: rgba(0,0,0,0.15); }
+  .pending-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: rgba(243,156,18,0.12); border: 1px solid rgba(243,156,18,0.3);
+    color: var(--amber); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px;
+  }
+
+  /* ── STAT ROWS ── */
+  .stat-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px solid rgba(79,189,232,0.08);
+  }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-row .label { color: var(--text-muted); font-size: 13px; }
+  .stat-row .value { font-weight: 700; color: #fff; font-size: 14px; }
+  .stat-row .value.blue { color: var(--blue-light); }
+
+  /* ── ENGAGEMENT PROGRESS CARDS ── */
+  .eng-cards { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .eng-card {
+    background: rgba(0,112,210,0.1); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 16px; display: flex; align-items: center; gap: 14px;
+  }
+  .eng-card .eng-icon { font-size: 22px; flex-shrink: 0; }
+  .eng-card .eng-info { flex: 1; }
+  .eng-card .eng-name { font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+  .eng-card .eng-desc { font-size: 12px; color: var(--text-muted); }
+  .eng-card .eng-count {
+    font-size: 22px; font-weight: 800; color: var(--amber); flex-shrink: 0;
+  }
+
+  /* ── SOQL BOX ── */
+  .soql-box {
+    background: #020F1E; border: 1px solid rgba(79,189,232,0.2);
+    border-radius: 8px; padding: 14px 16px; position: relative; margin-top: 14px;
+  }
+  .soql-box pre {
+    font-family: 'Courier New', monospace; font-size: 11px; color: #7FDBFF;
+    white-space: pre; overflow-x: auto;
+  }
+  .soql-box .copy-btn {
+    position: absolute; top: 8px; right: 10px;
+    background: rgba(0,112,210,0.3); border: 1px solid rgba(0,112,210,0.5);
+    color: var(--blue-light); font-size: 11px; padding: 3px 8px; border-radius: 4px;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .soql-box .copy-btn:hover { background: rgba(0,112,210,0.5); }
+
+  /* ── WaFD SPOTLIGHT ── */
+  .spotlight-header {
+    background: linear-gradient(135deg, #1A0F00 0%, #0A2848 60%, #032D60 100%);
+    border: 1px solid rgba(230,168,0,0.3);
+    border-radius: 12px; padding: 28px 32px; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 24px;
+  }
+  .spotlight-badge {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: linear-gradient(135deg, #E6A800, #CC7700);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 900; color: #fff; flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(230,168,0,0.4);
+  }
+  .spotlight-info .eyebrow {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+  }
+  .spotlight-info h2 { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .spotlight-info .meta { font-size: 13px; color: var(--text-muted); }
+  .spotlight-info .meta span { color: var(--blue-light); margin: 0 6px; }
+  .spotlight-info .meta span:first-child { margin-left: 0; }
+
+  .journey-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 900px) { .journey-grid { grid-template-columns: 1fr; } }
+
+  .journey-steps { display: flex; flex-direction: column; gap: 12px; }
+  .step {
+    display: flex; gap: 14px; background: var(--card);
+    border: 1px solid var(--border); border-radius: 10px; padding: 16px;
+  }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 14px; color: #111; flex-shrink: 0;
+  }
+  .step-body .step-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; color: #fff; }
+  .step-body p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .step-body .highlight { color: var(--gold-light); font-weight: 600; }
+
+  .impact-col { display: flex; flex-direction: column; gap: 16px; }
+  .features-list {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px;
+  }
+  .features-list h4 {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .feature-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0; border-bottom: 1px solid rgba(79,189,232,0.08); font-size: 13px;
+  }
+  .feature-item:last-child { border-bottom: none; }
+  .feature-item .chk { color: var(--green); font-size: 16px; }
+
+  .stat-highlight {
+    background: linear-gradient(135deg, #0A3A1A, #063010);
+    border: 1px solid rgba(46,204,113,0.3); border-radius: 12px;
+    padding: 28px; text-align: center;
+  }
+  .stat-highlight .big-num {
+    font-size: 72px; font-weight: 900; color: var(--green);
+    line-height: 1; margin-bottom: 8px; font-variant-numeric: tabular-nums;
+  }
+  .stat-highlight .big-label {
+    font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px;
+  }
+  .stat-highlight .big-sub { font-size: 12px; color: var(--text-muted); }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center; padding: 24px 32px;
+    color: var(--text-muted); font-size: 11px; border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  /* ── UTILITY ── */
+  .tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+  }
+  .tag.blue { background: rgba(0,112,210,0.25); color: var(--blue-light); }
+  .tag.gold { background: rgba(230,168,0,0.2); color: var(--gold); }
+  .tag.green { background: rgba(46,204,113,0.15); color: var(--green); }
+  .tag.red { background: rgba(231,76,60,0.2); color: #FF8A80; }
+
+  .sig-badge {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold); margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topbar">
+  <div class="logo">POST ONBOARDING <span>INSIGHTS</span></div>
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showSection('overview')">Overview</div>
+    <div class="nav-tab" onclick="showSection('metrics')">Operational</div>
+    <div class="nav-tab" onclick="showSection('subcloud')">Sub-Cloud</div>
+    <div class="nav-tab" onclick="showSection('engagement')">Engagement</div>
+    <div class="nav-tab" onclick="showSection('support')">Support</div>
+    <div class="nav-tab" onclick="showSection('wafd')">★ WaFD Story</div>
+  </div>
+</nav>
+
+<!-- ──────────────────────────────────────────────────────── -->
+<!-- SECTION: OVERVIEW -->
+<!-- ──────────────────────────────────────────────────────── -->
+<section id="overview" class="section active">
+  <div class="hero">
+    <p class="eyebrow">Monthly Business Review · Day 0 &amp; 1 – Onboarding</p>
+    <h1>Post Onboarding Insights</h1>
+    <div class="sub">Industry &amp; Revenue Cloud Accounts</div>
+    <div class="divider"></div>
+    <div class="meta">
+      <span><strong>Reporting Period:</strong> September 2026</span>
+      <span><strong>FYTD Scope:</strong> February – September 2026</span>
+      <span><strong>Total Onboarded FYTD:</strong> ~563 accounts</span>
+    </div>
+  </div>
+
+  <div style="max-width:900px; margin:0 auto;">
+    <!-- Quick KPIs -->
+    <div class="cards-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="metric-card">
+        <div class="card-glow green"></div>
+        <div class="card-label">Sep Inflow</div>
+        <div class="card-value">92</div>
+        <div class="card-delta"><span class="dot red"></span> ↓ 11 vs Aug 2026 · Within Plan</div>
+      </div>
+      <div class="metric-card">
+        <div class="card-glow green"></div>
+        <div class="card-label">Sep Closures</div>
+        <div class="card-value">94</div>
+        <div class="card-delta"><span class="dot green"></span> ↓ 1 vs Aug 2026 · Strong Throughput</div>
+      </div>
+      <div class="metric-card red">
+        <div class="card-glow red"></div>
+        <div class="card-label">Cancellation Rate</div>
+        <div class="card-value">20%</div>
+        <div class="card-delta"><span class="dot red"></span> ↑ 5% vs Aug 2026 · Under Review</div>
+      </div>
+      <div class="metric-card">
+        <div class="card-glow green"></div>
+        <div class="card-label">CSAT Score</div>
+        <div class="card-value">4.88</div>
+        <div class="card-delta"><span class="dot green"></span> ↑ 0.13 vs Aug 2026 · Above Target</div>
+      </div>
+    </div>
+
+    <div class="notice">
+      <span class="icon">⚠️</span>
+      <p><strong>Cancellation Recovery in Progress:</strong> 6 cases were successfully converted through the Review/Recovery process. Cancellation rate remains elevated at 20% (+5% vs Aug) and is under active review.</p>
+    </div>
+
+    <!-- Section map -->
+    <div class="two-col" style="gap:16px;">
+      <div class="data-card" style="cursor:pointer;" onclick="showSection('metrics')">
+        <div class="dc-header">01 · Operational Metrics</div>
+        <div class="dc-body" style="font-size:13px; color:var(--text-muted);">
+          Sep 2026 KPIs: Inflow, Closures, CSAT, Cancellation rate with month-over-month deltas.
+        </div>
+      </div>
+      <div class="data-card" style="cursor:pointer;" onclick="showSection('subcloud')">
+        <div class="dc-header">02 · Sub-Cloud Case Breakdown</div>
+        <div class="dc-body" style="font-size:13px; color:var(--text-muted);">
+          563 FYTD cases · 557 unique accounts · all completed. Top mix: Industry Clouds (27.7%) &amp; Nonprofit Cloud (26.1%).
+        </div>
+      </div>
+      <div class="data-card" style="cursor:pointer;" onclick="showSection('engagement')">
+        <div class="dc-header">03 · Engagement Progression</div>
+        <div class="dc-body" style="font-size:13px; color:var(--text-muted);">
+          557 unique accounts · 204 (36.6%) have guide ADR engagement post-onboarding. Premier 37.9% · Signature 25.0%.
+        </div>
+      </div>
+      <div class="data-card" style="cursor:pointer;" onclick="showSection('support')">
+        <div class="dc-header">04 · Support Case Analysis</div>
+        <div class="dc-body" style="font-size:13px; color:var(--text-muted);">
+          Support cases for FYTD onboarded accounts. Themes + high-attention account list.
+        </div>
+      </div>
+    </div>
+
+    <div class="data-card" style="margin-top:16px; cursor:pointer;" onclick="showSection('wafd')">
+      <div class="dc-header" style="background: rgba(230,168,0,0.15); border-bottom-color: rgba(230,168,0,0.25); color:var(--gold);">★ Customer Success Spotlight · WaFD – Washington Federal Bank</div>
+      <div class="dc-body" style="font-size:13px; color:var(--text-muted);">
+        FSC account onboarded Aug 2026 by Marijo Gojic. Foundational walkthrough → Expert Coaching on Interaction Summaries → <strong style="color:var(--green)">60% license activation</strong> with Interest Tags, ARC, FAM uplift.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────────────── -->
+<!-- SECTION: OPERATIONAL METRICS -->
+<!-- ──────────────────────────────────────────────────────── -->
+<section id="metrics" class="section">
+  <div class="section-header">
+    <h2>Operational Snapshot — September 2026</h2>
+    <p>Pre-validated metrics from the Proactive Success Team. All figures compared to August 2026.</p>
+  </div>
+
+  <div class="cards-grid" style="grid-template-columns:repeat(4,1fr);">
+    <div class="metric-card">
+      <div class="card-glow green"></div>
+      <div class="card-label">Inflow</div>
+      <div class="card-value">92</div>
+      <div class="card-delta"><span class="dot red"></span> ↓ 11 vs Aug 2026</div>
+      <div style="margin-top:10px;"><span class="tag green">Within Plan</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="card-glow green"></div>
+      <div class="card-label">Closures</div>
+      <div class="card-value">94</div>
+      <div class="card-delta"><span class="dot green"></span> ↓ 1 vs Aug 2026</div>
+      <div style="margin-top:10px;"><span class="tag green">Strong Throughput</span></div>
+    </div>
+    <div class="metric-card red">
+      <div class="card-glow red"></div>
+      <div class="card-label">Cancellation Rate</div>
+      <div class="card-value">20%</div>
+      <div class="card-delta"><span class="dot red"></span> ↑ 5% vs Aug 2026</div>
+      <div style="margin-top:10px;"><span class="tag red">Under Review</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="card-glow green"></div>
+      <div class="card-label">CSAT Score</div>
+      <div class="card-value">4.88</div>
+      <div class="card-delta"><span class="dot green"></span> ↑ 0.13 vs Aug 2026</div>
+      <div style="margin-top:10px;"><span class="tag green">Above Target</span></div>
+    </div>
+  </div>
+
+  <div class="notice">
+    <span class="icon">⚠️</span>
+    <p><strong>Cancellation Recovery Active:</strong> 6 cancellation cases were converted back through the Review/Recovery process in September. Cancellation rate of 20% (+5% vs Aug) is elevated and under active monitoring. No cascading risk identified at this time.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="data-card">
+      <div class="dc-header">Month-Over-Month Summary</div>
+      <div class="dc-body">
+        <div class="stat-row"><span class="label">Aug 2026 Inflow</span><span class="value">103</span></div>
+        <div class="stat-row"><span class="label">Sep 2026 Inflow</span><span class="value">92</span></div>
+        <div class="stat-row"><span class="label">MoM Change</span><span class="value" style="color:#FF8A80">↓ 11 cases</span></div>
+        <div class="stat-row"><span class="label">Aug 2026 Closures</span><span class="value">95</span></div>
+        <div class="stat-row"><span class="label">Sep 2026 Closures</span><span class="value">94</span></div>
+        <div class="stat-row"><span class="label">Aug 2026 CSAT</span><span class="value">4.75</span></div>
+        <div class="stat-row"><span class="label">Sep 2026 CSAT</span><span class="value blue">4.88</span></div>
+        <div class="stat-row"><span class="label">Aug Cancellation</span><span class="value">15%</span></div>
+        <div class="stat-row"><span class="label">Sep Cancellation</span><span class="value" style="color:#FF8A80">20%</span></div>
+      </div>
+    </div>
+    <div class="data-card">
+      <div class="dc-header">FYTD Cumulative Context</div>
+      <div class="dc-body">
+        <div class="stat-row"><span class="label">FYTD Period</span><span class="value">Feb – Sep 2026</span></div>
+        <div class="stat-row"><span class="label">Inflow</span><span class="value blue">830</span></div>
+        <div class="stat-row"><span class="label">Closures</span><span class="value blue">707</span></div>
+        <div class="stat-row"><span class="label">Unique Accounts Engaged</span><span class="value blue">557</span></div>
+        <div class="stat-row"><span class="label">Current Backlog</span><span class="value" style="color:var(--amber)">78</span></div>
+        <div class="stat-row"><span class="label">Premier Tier</span><span class="value">507</span></div>
+        <div class="stat-row"><span class="label">Signature Tier</span><span class="value" style="color:var(--gold)">56</span></div>
+        <div class="stat-row"><span class="label">Recovery Conversions (Sep)</span><span class="value blue">6</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────────────── -->
+<!-- SECTION: SUB-CLOUD BREAKDOWN -->
+<!-- ──────────────────────────────────────────────────────── -->
+<section id="subcloud" class="section">
+  <div class="section-header">
+    <h2>Sub-Cloud Case Breakdown — FYTD Feb–Sep 2026</h2>
+    <p>563 Premier &amp; Signature Onboarding ADR cases · 557 unique accounts · all with completion date · Source: ADR case data</p>
+  </div>
+
+  <!-- Visual bar chart -->
+  <div class="data-card" style="margin-bottom:24px;">
+    <div class="dc-header">FYTD Distribution by Product Area</div>
+    <div class="dc-body">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+            <span style="font-size:13px; font-weight:600;">Industry Clouds</span>
+            <span style="font-size:13px; color:var(--blue-light);">156 cases &nbsp;·&nbsp; 27.7%</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:14px; overflow:hidden;">
+            <div style="width:27.7%; height:100%; background:linear-gradient(90deg,#0070D2,#4FBDE8); border-radius:4px;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+            <span style="font-size:13px; font-weight:600;">Nonprofit Cloud (NPSP / NPC)</span>
+            <span style="font-size:13px; color:var(--blue-light);">147 cases &nbsp;·&nbsp; 26.1%</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:14px; overflow:hidden;">
+            <div style="width:26.1%; height:100%; background:linear-gradient(90deg,#0070D2,#4FBDE8); border-radius:4px;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+            <span style="font-size:13px; font-weight:600;">Revenue Cloud / CPQ / CLM</span>
+            <span style="font-size:13px; color:var(--blue-light);">47 cases &nbsp;·&nbsp; 8.3%</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:14px; overflow:hidden;">
+            <div style="width:8.3%; height:100%; background:linear-gradient(90deg,#E6A800,#FFD350); border-radius:4px;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+            <span style="font-size:13px; font-weight:600;">Financial Services Cloud (FSC)</span>
+            <span style="font-size:13px; color:var(--blue-light);">45 cases &nbsp;·&nbsp; 8.0%</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:14px; overflow:hidden;">
+            <div style="width:8.0%; height:100%; background:linear-gradient(90deg,#E6A800,#FFD350); border-radius:4px;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+            <span style="font-size:13px; font-weight:600;">Other (Health, Education, General Platform)</span>
+            <span style="font-size:13px; color:var(--text-muted);">168 cases &nbsp;·&nbsp; 29.9%</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:14px; overflow:hidden;">
+            <div style="width:29.9%; height:100%; background:rgba(120,140,170,0.6); border-radius:4px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="data-card" style="margin-bottom:24px;">
+    <div class="dc-header">Case Volume by Sub-Cloud / Product Area</div>
+    <div class="dc-body" style="padding:0;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Sub-Cloud / Product Area</th>
+            <th>Sep 2026 Est.</th>
+            <th>Sep %</th>
+            <th>FYTD Count</th>
+            <th>FYTD %</th>
+            <th>Tier Mix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Industry Clouds</strong></td>
+            <td>~26</td>
+            <td>27.7%</td>
+            <td><strong>156</strong></td>
+            <td><strong>27.7%</strong></td>
+            <td><span class="tag blue">Mix</span></td>
+          </tr>
+          <tr>
+            <td><strong>Nonprofit Cloud (NPSP / NPC)</strong></td>
+            <td>~24</td>
+            <td>26.1%</td>
+            <td><strong>147</strong></td>
+            <td><strong>26.1%</strong></td>
+            <td><span class="tag blue">Premier</span></td>
+          </tr>
+          <tr>
+            <td><strong>Revenue Cloud / CPQ / CLM</strong></td>
+            <td>~8</td>
+            <td>8.3%</td>
+            <td><strong>47</strong></td>
+            <td><strong>8.3%</strong></td>
+            <td><span class="tag blue">Mix</span></td>
+          </tr>
+          <tr>
+            <td><strong>Financial Services Cloud (FSC)</strong></td>
+            <td>~7</td>
+            <td>8.0%</td>
+            <td><strong>45</strong></td>
+            <td><strong>8.0%</strong></td>
+            <td><span class="tag blue">Mix</span></td>
+          </tr>
+          <tr>
+            <td>Other (Health, Education, General)</td>
+            <td>~27</td>
+            <td>29.9%</td>
+            <td>168</td>
+            <td>29.9%</td>
+            <td><span class="tag blue">Mix</span></td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>TOTAL</strong></td>
+            <td><strong>92</strong></td>
+            <td><strong>100%</strong></td>
+            <td><strong>563</strong></td>
+            <td><strong>100%</strong></td>
+            <td>90.1% P / 9.9% S</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="notice" style="background:rgba(79,189,232,0.07); border-color:rgba(79,189,232,0.2);">
+    <span class="icon">ℹ️</span>
+    <p style="color:var(--text-muted);">Sep 2026 counts are estimated by applying FYTD percentages to the 92 Sep inflow. "Other" includes Health Cloud, Education Cloud, and General Platform — per-product breakdown within that bucket not available from current data.</p>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────────────── -->
+<!-- SECTION: ENGAGEMENT PROGRESSION -->
+<!-- ──────────────────────────────────────────────────────── -->
+<section id="engagement" class="section">
+  <div class="section-header">
+    <h2>Engagement Progression Post-Onboarding</h2>
+    <p>287 Success Guide cases created after onboarding completion · 204 of 557 accounts engaged (36.6%) · FYTD Feb–Sep 2026</p>
+  </div>
+
+  <!-- Hero stats row -->
+  <div class="cards-grid" style="grid-template-columns:repeat(3,1fr); margin-bottom:24px;">
+    <div class="metric-card">
+      <div class="card-glow green"></div>
+      <div class="card-label">Success Guide Cases</div>
+      <div class="card-value" style="font-size:42px;">287</div>
+      <div class="card-delta"><span class="dot green"></span> Created post-onboarding completion</div>
+    </div>
+    <div class="metric-card">
+      <div class="card-glow green"></div>
+      <div class="card-label">Accounts Engaged</div>
+      <div class="card-value" style="font-size:42px;">204</div>
+      <div class="card-delta"><span class="dot green"></span> of 557 onboarded · 36.6% rate</div>
+    </div>
+    <div class="metric-card">
+      <div class="card-glow green"></div>
+      <div class="card-label">Avg Cases / Account</div>
+      <div class="card-value" style="font-size:42px;">1.4</div>
+      <div class="card-delta"><span class="dot green"></span> 287 cases ÷ 204 accounts</div>
+    </div>
+  </div>
+
+  <!-- Tier engagement card -->
+  <div class="data-card" style="margin-bottom:24px;">
+      <div class="dc-header">Success Guide Engagement by Tier</div>
+      <div class="dc-body">
+        <div style="text-align:center; padding:16px 0 22px; border-bottom:1px solid var(--border); margin-bottom:22px;">
+          <div style="font-size:52px; font-weight:900; color:var(--green); line-height:1;">36.6%</div>
+          <div style="font-size:14px; font-weight:700; color:#fff; margin:8px 0 4px;">Post-Onboarding Engagement Rate</div>
+          <div style="font-size:13px; color:var(--text-muted);">204 of 557 accounts &nbsp;·&nbsp; 287 Success Guide cases</div>
+          <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">≥ 1 guide case created <em>after</em> account completion date</div>
+        </div>
+        <div style="font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); margin-bottom:14px;">By Entitlement Tier</div>
+        <div style="margin-bottom:16px;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <span style="font-size:13px; font-weight:600;">Premier</span>
+            <span style="font-size:14px; font-weight:700; color:var(--blue-light);">38%</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:14px; overflow:hidden;">
+            <div style="width:38%; height:100%; background:linear-gradient(90deg,#0070D2,#4FBDE8); border-radius:4px;"></div>
+          </div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:5px;">~193 of 507 Premier accounts</div>
+        </div>
+        <div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <span style="font-size:13px; font-weight:600;">Signature</span>
+            <span style="font-size:14px; font-weight:700; color:var(--gold);">25%</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:14px; overflow:hidden;">
+            <div style="width:25%; height:100%; background:linear-gradient(90deg,#E6A800,#FFD350); border-radius:4px;"></div>
+          </div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:5px;">~14 of 56 Signature accounts</div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Full-width: Success Guide Topics -->
+  <div class="data-card">
+    <div class="dc-header">Top Success Guide Topics &nbsp;<span style="font-size:11px; font-weight:400; color:var(--text-muted);">287 cases · 19 topics listed</span></div>
+    <div class="dc-body" style="padding:24px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+
+        <!-- Industry Cloud Topics -->
+        <div>
+          <div style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--blue-light); font-weight:700; margin-bottom:18px; padding-bottom:8px; border-bottom:1px solid var(--border);">Industry Cloud Topics</div>
+          <div style="display:flex; flex-direction:column; gap:11px;">
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Nonprofit</span><span style="font-size:12px; font-weight:700; color:var(--blue-light);">56</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:100%; height:100%; background:rgba(0,112,210,0.75); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Nonprofit Fundamentals</span><span style="font-size:12px; font-weight:700; color:var(--blue-light);">27</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:48.2%; height:100%; background:rgba(0,112,210,0.75); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Nonprofit Success Pack</span><span style="font-size:12px; font-weight:700; color:var(--blue-light);">22</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:39.3%; height:100%; background:rgba(0,112,210,0.75); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Financial Services</span><span style="font-size:12px; font-weight:700; color:var(--blue-light);">21</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:37.5%; height:100%; background:rgba(0,112,210,0.75); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Life Sciences</span><span style="font-size:12px; font-weight:700; color:var(--blue-light);">20</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:35.7%; height:100%; background:rgba(0,112,210,0.75); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Nonprofit – Reports &amp; Dashboards</span><span style="font-size:12px; font-weight:700; color:var(--blue-light);">18</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:32.1%; height:100%; background:rgba(0,112,210,0.75); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Developer Support</span><span style="font-size:12px; font-weight:700; color:var(--blue-light);">15</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:26.8%; height:100%; background:rgba(0,112,210,0.75); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Nonprofit – Fundraising</span><span style="font-size:12px; font-weight:700; color:var(--blue-light);">15</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:26.8%; height:100%; background:rgba(0,112,210,0.75); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Salesforce Industries – Flows &amp; Automation</span><span style="font-size:12px; font-weight:700; color:var(--blue-light);">13</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:23.2%; height:100%; background:rgba(0,112,210,0.75); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px; color:var(--text-muted);">Security</span><span style="font-size:12px; font-weight:700; color:var(--text-muted);">8</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:14.3%; height:100%; background:rgba(0,112,210,0.45); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px; color:var(--text-muted);">Omnistudio</span><span style="font-size:12px; font-weight:700; color:var(--text-muted);">7</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:12.5%; height:100%; background:rgba(0,112,210,0.45); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px; color:var(--text-muted);">Financial Services Fundamentals</span><span style="font-size:12px; font-weight:700; color:var(--text-muted);">6</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:10.7%; height:100%; background:rgba(0,112,210,0.45); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px; color:var(--text-muted);">Education</span><span style="font-size:12px; font-weight:700; color:var(--text-muted);">6</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:10.7%; height:100%; background:rgba(0,112,210,0.45); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px; color:var(--text-muted);">Nonprofit – Programs</span><span style="font-size:12px; font-weight:700; color:var(--text-muted);">6</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:10.7%; height:100%; background:rgba(0,112,210,0.45); border-radius:3px;"></div></div></div>
+
+          </div>
+        </div>
+
+        <!-- Revenue Cloud Topics -->
+        <div>
+          <div style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:18px; padding-bottom:8px; border-bottom:1px solid var(--border);">Revenue Cloud Topics</div>
+          <div style="display:flex; flex-direction:column; gap:11px;">
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Agentforce Revenue Mgmt Fundamentals</span><span style="font-size:12px; font-weight:700; color:var(--gold);">15</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:26.8%; height:100%; background:rgba(230,168,0,0.7); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Product Catalog Management</span><span style="font-size:12px; font-weight:700; color:var(--gold);">9</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:16.1%; height:100%; background:rgba(230,168,0,0.7); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Contracts</span><span style="font-size:12px; font-weight:700; color:var(--gold);">9</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:16.1%; height:100%; background:rgba(230,168,0,0.7); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px;">Agentforce Revenue Management</span><span style="font-size:12px; font-weight:700; color:var(--gold);">8</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:14.3%; height:100%; background:rgba(230,168,0,0.7); border-radius:3px;"></div></div></div>
+
+            <div><div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-size:12px; color:var(--text-muted);">Pricing</span><span style="font-size:12px; font-weight:700; color:var(--text-muted);">6</span></div><div style="background:rgba(255,255,255,0.06); border-radius:3px; height:8px; overflow:hidden;"><div style="width:10.7%; height:100%; background:rgba(230,168,0,0.4); border-radius:3px;"></div></div></div>
+
+          </div>
+
+          <div style="margin-top:28px; padding:14px; background:rgba(79,189,232,0.06); border:1px solid rgba(79,189,232,0.15); border-radius:8px;">
+            <div style="font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">Topic Totals (listed)</div>
+            <div class="stat-row" style="padding:5px 0;"><span class="label">Industry Cloud topics</span><span class="value blue">240 cases</span></div>
+            <div class="stat-row" style="padding:5px 0;"><span class="label">Revenue Cloud topics</span><span class="value" style="color:var(--gold);">47 cases</span></div>
+            <div class="stat-row" style="padding:5px 0; border-top:1px solid var(--border); margin-top:4px;"><span class="label" style="font-weight:700; color:#fff;">Total</span><span class="value blue" style="font-weight:700;">287 cases</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────────────── -->
+<!-- SECTION: SUPPORT CASE ANALYSIS -->
+<!-- ──────────────────────────────────────────────────────── -->
+<section id="support" class="section">
+  <div class="section-header">
+    <h2>Support Case Analysis — FYTD Onboarded Accounts</h2>
+    <p>Industry &amp; Revenue Cloud support cases created after onboarding completion · Feb–Sep 2026</p>
+  </div>
+
+  <!-- Partial data notice -->
+  <div class="notice" style="margin-bottom:24px;">
+    <span class="icon">⚠️</span>
+    <p><strong>Partial coverage:</strong> Cases pulled for 552 of 557 onboarded accounts — 7 accounts were blocked from query. All figures below represent partial data only.</p>
+  </div>
+
+  <!-- Hero stats -->
+  <div class="cards-grid" style="grid-template-columns:repeat(3,1fr); margin-bottom:24px;">
+    <div class="metric-card">
+      <div class="card-glow blue"></div>
+      <div class="card-label">Support Cases (Post-Onboarding)</div>
+      <div class="card-value" style="font-size:42px;">525</div>
+      <div class="card-delta"><span class="dot blue"></span> Industry &amp; Revenue Cloud topics</div>
+    </div>
+    <div class="metric-card">
+      <div class="card-glow blue"></div>
+      <div class="card-label">Accounts with Cases</div>
+      <div class="card-value" style="font-size:42px;">181</div>
+      <div class="card-delta"><span class="dot blue"></span> of 552 accounts pulled · 32.8% rate</div>
+    </div>
+    <div class="metric-card">
+      <div class="card-glow amber" style="background:radial-gradient(ellipse at 50% 0,rgba(230,168,0,0.25),transparent 70%);"></div>
+      <div class="card-label">Accounts Queryable</div>
+      <div class="card-value" style="font-size:42px; color:var(--amber);">552</div>
+      <div class="card-delta"><span class="dot" style="background:var(--amber);"></span> of 557 onboarded · 7 blocked</div>
+    </div>
+  </div>
+
+  <!-- Product breakdown -->
+  <div class="data-card" style="margin-bottom:24px;">
+    <div class="dc-header">Cases by Product Line</div>
+    <div class="dc-body">
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <span style="font-size:13px; font-weight:600;">Industry Cloud</span>
+            <span style="font-size:14px; font-weight:700; color:var(--blue-light);">455 <span style="font-size:11px; color:var(--text-muted); font-weight:400;">(78.2%)</span></span>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:14px; overflow:hidden;">
+            <div style="width:78.2%; height:100%; background:linear-gradient(90deg,#0070D2,#4FBDE8); border-radius:4px;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <span style="font-size:13px; font-weight:600;">Revenue Cloud (Core)</span>
+            <span style="font-size:14px; font-weight:700; color:var(--gold);">105 <span style="font-size:11px; color:var(--text-muted); font-weight:400;">(18.0%)</span></span>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:14px; overflow:hidden;">
+            <div style="width:18%; height:100%; background:linear-gradient(90deg,#E6A800,#FFD350); border-radius:4px;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <span style="font-size:13px; font-weight:600; color:var(--text-muted);">Revenue (CPQ &amp; Billing)</span>
+            <span style="font-size:14px; font-weight:700; color:var(--text-muted);">22 <span style="font-size:11px; font-weight:400;">(3.8%)</span></span>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:14px; overflow:hidden;">
+            <div style="width:3.8%; height:100%; background:rgba(230,168,0,0.35); border-radius:4px;"></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px; padding:12px 14px; background:rgba(79,189,232,0.05); border:1px solid rgba(79,189,232,0.12); border-radius:6px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Life Sciences note</div>
+        <div style="font-size:12px; color:var(--text-muted); line-height:1.6;">Life Sciences topics account for over a third of all cases. Concentration across accounts not yet assessed.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Themes full-width -->
+  <div class="data-card">
+    <div class="dc-header">Case Themes &nbsp;<span style="font-size:11px; font-weight:400; color:var(--text-muted);">Inferred from subject keyword matching · treat as approximate</span></div>
+    <div class="dc-body" style="padding:24px;">
+      <div>
+
+        <!-- Theme bars (max = 294) -->
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="font-size:13px; font-weight:600;">Errors / Unexpected Behavior</span>
+              <span style="font-size:14px; font-weight:700; color:var(--red);">294</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:12px; overflow:hidden;">
+              <div style="width:100%; height:100%; background:linear-gradient(90deg,#C23934,#E74C3C); border-radius:4px;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="font-size:13px; font-weight:600; color:var(--text-muted);">Other / Unclassified</span>
+              <span style="font-size:14px; font-weight:700; color:var(--text-muted);">185</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:12px; overflow:hidden;">
+              <div style="width:62.9%; height:100%; background:rgba(255,255,255,0.2); border-radius:4px;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="font-size:13px; font-weight:600;">Access / Permissions / Login / Licensing</span>
+              <span style="font-size:14px; font-weight:700; color:var(--amber);">149</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:12px; overflow:hidden;">
+              <div style="width:50.7%; height:100%; background:linear-gradient(90deg,#E6A800,#FFD350); border-radius:4px;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="font-size:13px; font-weight:600;">Configuration / How-To</span>
+              <span style="font-size:14px; font-weight:700; color:var(--blue-light);">62</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:12px; overflow:hidden;">
+              <div style="width:21.1%; height:100%; background:linear-gradient(90deg,#0070D2,#4FBDE8); border-radius:4px;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="font-size:13px; font-weight:600;">Data / Reports / Fields</span>
+              <span style="font-size:14px; font-weight:700; color:var(--blue-light);">53</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:12px; overflow:hidden;">
+              <div style="width:18.0%; height:100%; background:linear-gradient(90deg,#0070D2,#4FBDE8); border-radius:4px;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="font-size:13px; font-weight:600;">OmniStudio / OmniScript Build Issues</span>
+              <span style="font-size:14px; font-weight:700; color:var(--blue-light);">49</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:12px; overflow:hidden;">
+              <div style="width:16.7%; height:100%; background:linear-gradient(90deg,#0070D2,#4FBDE8); border-radius:4px;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="font-size:13px; font-weight:600; color:var(--text-muted);">Deployment / Sandbox / Migration</span>
+              <span style="font-size:14px; font-weight:700; color:var(--text-muted);">24</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:12px; overflow:hidden;">
+              <div style="width:8.2%; height:100%; background:rgba(255,255,255,0.15); border-radius:4px;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="font-size:13px; font-weight:600; color:var(--text-muted);">Integration / API / Apex / Flow</span>
+              <span style="font-size:14px; font-weight:700; color:var(--text-muted);">23</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:12px; overflow:hidden;">
+              <div style="width:7.8%; height:100%; background:rgba(255,255,255,0.15); border-radius:4px;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Case-Driving Accounts -->
+  <div class="data-card" style="margin-top:24px;">
+    <div class="dc-header">Top Case-Driving Accounts &nbsp;<span style="font-size:11px; font-weight:400; color:var(--text-muted);">525 cases across 181 accounts · top 10 shown</span></div>
+    <div class="dc-body" style="padding:0;">
+      <table style="width:100%; border-collapse:collapse; font-size:13px;">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border);">
+            <th style="padding:10px 16px; text-align:left; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); font-weight:600; width:32px;">#</th>
+            <th style="padding:10px 16px; text-align:left; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); font-weight:600;">Account</th>
+            <th style="padding:10px 16px; text-align:center; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); font-weight:600; width:70px;">Cases</th>
+            <th style="padding:10px 16px; text-align:left; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); font-weight:600;">Top Product &amp; Topic</th>
+            <th style="padding:10px 16px; text-align:center; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); font-weight:600; width:90px;">Plan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:11px 16px; color:var(--text-muted);">1</td>
+            <td style="padding:11px 16px; font-weight:600;">Takeda Pharmaceuticals International AG</td>
+            <td style="padding:11px 16px; text-align:center; font-weight:700; color:var(--red); font-size:15px;">123</td>
+            <td style="padding:11px 16px; color:var(--text-muted);">Industry – Life Sciences (123)</td>
+            <td style="padding:11px 16px; text-align:center;"><span class="tag gold">Signature</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:11px 16px; color:var(--text-muted);">2</td>
+            <td style="padding:11px 16px; font-weight:600;">National House-Building Council (NHBC) (New Org)</td>
+            <td style="padding:11px 16px; text-align:center; font-weight:700; color:var(--blue-light); font-size:15px;">57</td>
+            <td style="padding:11px 16px; color:var(--text-muted);">Industry – Financial Services (21)</td>
+            <td style="padding:11px 16px; text-align:center;"><span class="tag blue">Premier</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:11px 16px; color:var(--text-muted);">3</td>
+            <td style="padding:11px 16px; font-weight:600;">Chiesi Farmaceutici Spa</td>
+            <td style="padding:11px 16px; text-align:center; font-weight:700; color:var(--blue-light); font-size:15px;">37</td>
+            <td style="padding:11px 16px; color:var(--text-muted);">Industry – Life Sciences (37)</td>
+            <td style="padding:11px 16px; text-align:center;"><span class="tag blue">Premier</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:11px 16px; color:var(--text-muted);">4</td>
+            <td style="padding:11px 16px; font-weight:600;">Schneider Electric Industries SAS</td>
+            <td style="padding:11px 16px; text-align:center; font-weight:700; color:var(--blue-light); font-size:15px;">33</td>
+            <td style="padding:11px 16px; color:var(--text-muted);">Revenue Cloud (Core) – Transaction Management (15)</td>
+            <td style="padding:11px 16px; text-align:center;"><span class="tag blue">Premier</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:11px 16px; color:var(--text-muted);">5</td>
+            <td style="padding:11px 16px; font-weight:600;">Alfasigma Global CRM</td>
+            <td style="padding:11px 16px; text-align:center; font-weight:700; color:var(--blue-light); font-size:15px;">30</td>
+            <td style="padding:11px 16px; color:var(--text-muted);">Industry – Life Sciences (30)</td>
+            <td style="padding:11px 16px; text-align:center;"><span class="tag gold">Signature</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:11px 16px; color:var(--text-muted);">6</td>
+            <td style="padding:11px 16px; font-weight:600;">STARS (Shock Trauma Air Rescue Society)</td>
+            <td style="padding:11px 16px; text-align:center; font-weight:700; color:var(--blue-light); font-size:15px;">22</td>
+            <td style="padding:11px 16px; color:var(--text-muted);">Revenue Cloud (Core) – Product Configurator (9)</td>
+            <td style="padding:11px 16px; text-align:center;"><span class="tag blue">Premier</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:11px 16px; color:var(--text-muted);">7</td>
+            <td style="padding:11px 16px; font-weight:600;">SOMOS PRIMERO IPS S.A.S.</td>
+            <td style="padding:11px 16px; text-align:center; font-weight:700; color:var(--blue-light); font-size:15px;">17</td>
+            <td style="padding:11px 16px; color:var(--text-muted);">Industry – Health Cloud (16)</td>
+            <td style="padding:11px 16px; text-align:center;"><span class="tag blue">Premier</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:11px 16px; color:var(--text-muted);">8</td>
+            <td style="padding:11px 16px; font-weight:600;">Hansa Biopharma AB</td>
+            <td style="padding:11px 16px; text-align:center; font-weight:700; color:var(--blue-light); font-size:15px;">16</td>
+            <td style="padding:11px 16px; color:var(--text-muted);">Industry – Life Sciences (16)</td>
+            <td style="padding:11px 16px; text-align:center;"><span class="tag blue">Premier</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:11px 16px; color:var(--text-muted);">9</td>
+            <td style="padding:11px 16px; font-weight:600;">Clark Equipment Sales Pty Ltd</td>
+            <td style="padding:11px 16px; text-align:center; font-weight:700; color:var(--blue-light); font-size:15px;">14</td>
+            <td style="padding:11px 16px; color:var(--text-muted);">Revenue Cloud (Core) – Product Configurator (11)</td>
+            <td style="padding:11px 16px; text-align:center;"><span class="tag blue">Premier</span></td>
+          </tr>
+          <tr>
+            <td style="padding:11px 16px; color:var(--text-muted);">10</td>
+            <td style="padding:11px 16px; font-weight:600;">Colgate-Palmolive Company</td>
+            <td style="padding:11px 16px; text-align:center; font-weight:700; color:var(--blue-light); font-size:15px;">13</td>
+            <td style="padding:11px 16px; color:var(--text-muted);">Industry – Life Sciences (13)</td>
+            <td style="padding:11px 16px; text-align:center;"><span class="tag gold">Signature</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+<!-- ──────────────────────────────────────────────────────── -->
+<!-- SECTION: WaFD SUCCESS STORY -->
+<!-- ──────────────────────────────────────────────────────── -->
+<section id="wafd" class="section">
+  <div class="spotlight-header">
+    <div class="spotlight-badge">W</div>
+    <div class="spotlight-info">
+      <div class="eyebrow">★ Customer Success Spotlight</div>
+      <h2>WaFD — Washington Federal Bank</h2>
+      <div class="meta">
+        <span>Financial Services Cloud (FSC)</span>
+        <span>·</span>
+        <span>Premier</span>
+        <span>·</span>
+        <span>Onboarded August 2026</span>
+        <span>·</span>
+        <span>Onboarding Specialist: <strong style="color:#fff;">Marijo Gojic</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="journey-grid">
+    <!-- Left: Engagement Journey -->
+    <div>
+      <p style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; font-weight:700;">Engagement Journey</p>
+      <div class="journey-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Foundational Features Walkthrough</div>
+            <p>Marijo ran a structured walkthrough of core FSC capabilities with the WaFD team. Collaborative exploration of available features and use-case mapping.</p>
+            <p style="margin-top:6px;"><span class="highlight">→ Interaction Summaries identified as high-value opportunity</span> for WaFD's relationship banking workflow.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Expert Coaching Session — Scheduled</div>
+            <p>Deep-dive coaching session created on <span class="highlight">Interaction Summaries</span> — covering configuration, best practices, and integration into the relationship banking process.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Post-Coaching Adoption Kickoff</div>
+            <p>Following the coaching session, WaFD activated three additional FSC features:</p>
+            <p style="margin-top:6px;"><span class="highlight">✓ Interest Tags</span> &nbsp;·&nbsp; <span class="highlight">✓ ARC (Activity Relationship Center)</span> &nbsp;·&nbsp; <span class="highlight">✓ FAM (Financial Account Management)</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">CSAT &nbsp;<span style="font-size:13px; font-weight:400; color:var(--gold);">★★★★★ &nbsp;5 / 5</span></div>
+            <p style="margin-top:6px; font-style:italic; color:var(--text-muted); line-height:1.6;">"Marijo was fantastic. Such a great energy as we step in to this next part of our Salesforce journey! Impressive."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Impact -->
+    <div class="impact-col">
+      <div class="features-list">
+        <h4>Features Activated</h4>
+        <div class="feature-item"><span class="chk">✅</span> Interaction Summaries <span class="tag gold" style="margin-left:auto;">Key Win</span></div>
+        <div class="feature-item"><span class="chk">✅</span> Interest Tags</div>
+        <div class="feature-item"><span class="chk">✅</span> Activity Relationship Center (ARC)</div>
+        <div class="feature-item"><span class="chk">✅</span> Financial Account Management (FAM)</div>
+      </div>
+
+      <div class="stat-highlight">
+        <div class="big-num">60%</div>
+        <div class="big-label">License Activation Rate</div>
+        <div class="big-sub">Post Expert Coaching Session</div>
+      </div>
+
+      <div class="data-card">
+        <div class="dc-header">Customer Profile</div>
+        <div class="dc-body">
+          <div class="stat-row"><span class="label">Cloud</span><span class="value">Financial Services Cloud</span></div>
+          <div class="stat-row"><span class="label">Entitlement</span><span class="value">Premier</span></div>
+          <div class="stat-row"><span class="label">Onboarded</span><span class="value">August 2026</span></div>
+          <div class="stat-row"><span class="label">Onboarding Specialist</span><span class="value blue">Marijo Gojic</span></div>
+          <div class="stat-row"><span class="label">Key Feature Win</span><span class="value" style="color:var(--gold)">Interaction Summaries</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  Post Onboarding Insights · Industry &amp; Revenue Cloud · September 2026 MBR &nbsp;|&nbsp; Proactive Success Team &nbsp;|&nbsp; Built: October 2026
+</footer>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const tabs = { overview:0, metrics:1, subcloud:2, engagement:3, support:4, wafd:5 };
+  document.querySelectorAll('.nav-tab')[tabs[id]]?.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function copySOQL(btn) {
+  const pre = btn.parentElement.querySelector('pre');
+  navigator.clipboard.writeText(pre.textContent).then(() => {
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 1500);
+  });
+}
+</script>
+</body>
+</html>
