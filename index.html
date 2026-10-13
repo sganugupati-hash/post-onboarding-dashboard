@@ -306,20 +306,6 @@
     display: inline-block; width: 8px; height: 8px; border-radius: 50%;
     background: var(--gold); margin-right: 6px;
   }
-  .fsc-row{display:grid;grid-template-columns:12px 1fr 130px 80px 160px 70px 70px 24px;align-items:center;gap:8px;padding:11px 16px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.15s;}
-  .fsc-row:hover{background:rgba(255,255,255,0.03);}
-  .fsc-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
-  .fsc-dot.c{background:var(--green);}
-  .fsc-dot.p{background:var(--blue-light);}
-  .fsc-dot.x{background:rgba(255,255,255,0.18);}
-  .fsc-detail{padding:14px 16px 14px 48px;background:rgba(0,0,0,0.18);border-bottom:1px solid rgba(255,255,255,0.05);}
-  .fsc-group-hdr{padding:9px 16px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-muted);background:rgba(255,255,255,0.02);border-bottom:1px solid var(--border);}
-  .fchip{display:inline-flex;align-items:center;padding:3px 10px;border-radius:12px;font-size:11px;margin:2px 4px 2px 0;background:rgba(0,112,210,0.12);color:var(--blue-light);border:1px solid rgba(0,112,210,0.2);}
-  .fchip.go{background:rgba(230,168,0,0.1);color:var(--gold);border-color:rgba(230,168,0,0.2);}
-  .fchip.na{background:rgba(255,255,255,0.04);color:var(--text-muted);border-color:rgba(255,255,255,0.08);}
-  .fpill{padding:5px 14px;border:1px solid var(--border);background:transparent;color:var(--text-muted);border-radius:20px;cursor:pointer;font-size:12px;transition:all 0.15s;}
-  .fpill.on{background:rgba(0,112,210,0.2);color:var(--blue-light);border-color:rgba(0,112,210,0.5);}
-  .fsc-chev{color:var(--text-muted);font-size:16px;text-align:center;display:block;transition:transform 0.2s;user-select:none;}
 </style>
 </head>
 <body>
@@ -333,7 +319,6 @@
     <div class="nav-tab" onclick="showSection('subcloud')">Sub-Cloud</div>
     <div class="nav-tab" onclick="showSection('engagement')">Engagement</div>
     <div class="nav-tab" onclick="showSection('support')">Support</div>
-    <div class="nav-tab" onclick="showSection('fsc')">FSC Impact</div>
     <div class="nav-tab" onclick="showSection('wafd')">★ WaFD Story</div>
   </div>
 </nav>
@@ -1031,234 +1016,6 @@
 </section>
 
 <!-- ──────────────────────────────────────────────────────── -->
-<!-- SECTION: FSC IMPACT -->
-<!-- ──────────────────────────────────────────────────────── -->
-<section id="fsc" class="section">
-  <div class="section-header">
-    <h2>FSC — Post-Onboarding Impact</h2>
-    <p>Financial Services Cloud &middot; 98 Accounts &middot; FYTD Feb&ndash;Sep 2026 &middot; Exec Summary</p>
-  </div>
-
-  <!-- KPI Row -->
-  <div class="cards-grid" style="grid-template-columns:repeat(5,1fr);margin-bottom:24px;">
-    <div class="metric-card">
-      <div class="card-glow blue"></div>
-      <div class="card-label">FSC Accounts</div>
-      <div class="card-value">98</div>
-      <div class="card-delta"><span class="dot blue"></span>FYTD onboarding cohort</div>
-    </div>
-    <div class="metric-card">
-      <div class="card-glow green"></div>
-      <div class="card-label">Completed</div>
-      <div class="card-value" style="color:var(--green);">74</div>
-      <div class="card-delta"><span class="dot green"></span>75.5% completion rate</div>
-    </div>
-    <div class="metric-card">
-      <div class="card-glow green"></div>
-      <div class="card-label">Avg CSAT</div>
-      <div class="card-value" style="color:var(--green);">4.4</div>
-      <div class="card-delta"><span class="dot green"></span>26 rated &middot; 15 perfect 5.0</div>
-    </div>
-    <div class="metric-card">
-      <div class="card-glow gold"></div>
-      <div class="card-label">SF Go Adopters</div>
-      <div class="card-value" style="color:var(--gold);">16</div>
-      <div class="card-delta"><span class="dot gold"></span>16% adopted SF Go features</div>
-    </div>
-    <div class="metric-card">
-      <div class="card-glow blue"></div>
-      <div class="card-label">In Progress</div>
-      <div class="card-value" style="color:var(--blue-light);">8</div>
-      <div class="card-delta"><span class="dot blue"></span>Active engagements</div>
-    </div>
-  </div>
-
-  <!-- Status Funnel + Comparison Row -->
-  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:16px;">
-
-    <!-- Status Funnel -->
-    <div class="data-card">
-      <div class="dc-header">Onboarding Status Breakdown</div>
-      <div style="padding:20px 8px 8px;">
-        <!-- Segmented bar -->
-        <div style="display:flex;height:32px;border-radius:6px;overflow:hidden;margin-bottom:20px;">
-          <div style="width:75.5%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#032D60;">75.5%</div>
-          <div style="width:8.2%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#032D60;">8%</div>
-          <div style="width:13.3%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-muted);">13%</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);"></div>
-        </div>
-        <!-- Legend -->
-        <div style="display:flex;gap:24px;flex-wrap:wrap;">
-          <div style="display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:var(--green);border-radius:2px;display:inline-block;"></span><span style="font-size:13px;"><strong>74</strong> <span style="color:var(--text-muted);">Completed</span></span></div>
-          <div style="display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:var(--blue-light);border-radius:2px;display:inline-block;"></span><span style="font-size:13px;"><strong>8</strong> <span style="color:var(--text-muted);">In Progress</span></span></div>
-          <div style="display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:rgba(255,255,255,0.15);border-radius:2px;display:inline-block;"></span><span style="font-size:13px;"><strong>13</strong> <span style="color:var(--text-muted);">Canceled</span></span></div>
-          <div style="display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:rgba(255,255,255,0.05);border-radius:2px;display:inline-block;"></span><span style="font-size:13px;"><strong>3</strong> <span style="color:var(--text-muted);">Other</span></span></div>
-        </div>
-        <!-- CSAT breakdown -->
-        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
-          <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">CSAT Breakdown (26 rated)</div>
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-            <div style="width:80px;font-size:12px;color:var(--text-muted);">5.0 &#9733;</div>
-            <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:57.7%;height:100%;background:var(--green);border-radius:4px;"></div></div>
-            <div style="font-size:13px;font-weight:700;color:var(--green);width:32px;text-align:right;">15</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-            <div style="width:80px;font-size:12px;color:var(--text-muted);">4.x &#9733;</div>
-            <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:26.9%;height:100%;background:var(--amber);border-radius:4px;"></div></div>
-            <div style="font-size:13px;font-weight:700;color:var(--amber);width:32px;text-align:right;">7</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:80px;font-size:12px;color:var(--text-muted);">&lt;4 &#9733;</div>
-            <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:15.4%;height:100%;background:rgba(231,76,60,0.6);border-radius:4px;"></div></div>
-            <div style="font-size:13px;font-weight:700;color:var(--red);width:32px;text-align:right;">4</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FSC vs Overall Comparison -->
-    <div class="data-card">
-      <div class="dc-header">FSC vs Overall Cohort</div>
-      <div style="padding:16px 8px;">
-        <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;">Overall Cohort: 557 accounts</div>
-        <!-- Completion rate -->
-        <div style="margin-bottom:18px;">
-          <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:12px;color:var(--text-muted);">Completion Rate</span></div>
-          <div style="display:flex;gap:12px;align-items:center;">
-            <div style="flex:1;">
-              <div style="font-size:11px;color:var(--blue-light);margin-bottom:4px;">FSC</div>
-              <div style="background:rgba(255,255,255,0.05);border-radius:4px;height:12px;overflow:hidden;"><div style="width:75.5%;height:100%;background:var(--green);border-radius:4px;"></div></div>
-              <div style="font-size:13px;font-weight:700;color:var(--green);margin-top:3px;">75.5%</div>
-            </div>
-            <div style="flex:1;">
-              <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">Overall</div>
-              <div style="background:rgba(255,255,255,0.05);border-radius:4px;height:12px;overflow:hidden;"><div style="width:36.6%;height:100%;background:rgba(79,189,232,0.4);border-radius:4px;"></div></div>
-              <div style="font-size:13px;color:var(--text-muted);margin-top:3px;">36.6% engaged</div>
-            </div>
-          </div>
-        </div>
-        <!-- CSAT -->
-        <div style="margin-bottom:18px;">
-          <div style="display:flex;gap:12px;align-items:center;">
-            <div style="flex:1;">
-              <div style="font-size:11px;color:var(--blue-light);margin-bottom:4px;">FSC Avg CSAT</div>
-              <div style="font-size:22px;font-weight:700;color:var(--green);">4.4</div>
-            </div>
-            <div style="flex:1;">
-              <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">Support Cases</div>
-              <div style="font-size:13px;color:var(--text-muted);">525 total &middot; 32.8% of accounts</div>
-            </div>
-          </div>
-        </div>
-        <!-- SF Go highlight -->
-        <div style="padding:12px;background:rgba(230,168,0,0.07);border:1px solid rgba(230,168,0,0.15);border-radius:8px;">
-          <div style="font-size:11px;color:var(--gold);font-weight:600;margin-bottom:4px;">&#9733; Salesforce Go Momentum</div>
-          <div style="font-size:13px;color:var(--text-muted);">16 FSC accounts activated Salesforce Go features &mdash; highest uptake of any sub-cloud in the cohort</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Feature Adoption + SF Go Row -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-
-    <!-- Post-Onboarding Feature Adoption -->
-    <div class="data-card">
-      <div class="dc-header">Post-Onboarding Feature Adoption</div>
-      <div style="padding:8px;">
-        <div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;">% of 98 FSC accounts activating each feature post-onboarding</div>
-
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <div style="width:145px;font-size:12px;color:var(--text);">Financial Account 360</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
-          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">24 (24%)</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <div style="width:145px;font-size:12px;color:var(--text);">Field Audit Trail</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:83%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
-          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">20 (20%)</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <div style="width:145px;font-size:12px;color:var(--text);">Actionable Rel. Center</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:71%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
-          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">17 (17%)</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <div style="width:145px;font-size:12px;color:var(--text);">Action Plans</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:63%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
-          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">15 (15%)</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <div style="width:145px;font-size:12px;color:var(--text);">Invocable Actions</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:50%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
-          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">12 (12%)</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <div style="width:145px;font-size:12px;color:var(--text);">Group Memberships &amp; HH</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:42%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
-          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">10 (10%)</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-          <div style="width:145px;font-size:12px;color:var(--text);">Nurture Fin. Relationships</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:38%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
-          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">9 (9%)</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:145px;font-size:12px;color:var(--text);">Document Checklist</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:33%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
-          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">8 (8%)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Salesforce Go -->
-    <div class="data-card">
-      <div class="dc-header">Salesforce Go Adoption &nbsp;<span style="font-size:12px;font-weight:400;color:var(--gold);">16 accounts &middot; 16%</span></div>
-      <div style="padding:8px;">
-        <div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;">FSC accounts with Salesforce Go feature activations (Guided Success flows)</div>
-
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-          <div style="width:180px;font-size:12px;color:var(--text);">Agentforce Compliance</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
-          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-          <div style="width:180px;font-size:12px;color:var(--text);">Tableau Next Dashboards</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:60%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
-          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-          <div style="width:180px;font-size:12px;color:var(--text);">Integration Definitions</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:48%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
-          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-          <div style="width:180px;font-size:12px;color:var(--text);">Frontline Compliance Assist</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:45%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
-          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-          <div style="width:180px;font-size:12px;color:var(--text);">Digital Lending Setup</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:45%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
-          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:180px;font-size:12px;color:var(--text);">Agentforce (FSC)</div>
-          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:22%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
-          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
-        </div>
-
-        <div style="margin-top:20px;padding:12px;background:rgba(230,168,0,0.07);border:1px solid rgba(230,168,0,0.15);border-radius:8px;">
-          <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:6px;">AI &amp; Compliance Leading Adoption</div>
-          <div style="font-size:12px;color:var(--text-muted);line-height:1.6;">Agentforce Compliance is the #1 Salesforce Go activation &mdash; reflecting FSC customers prioritizing AI-driven regulatory automation alongside core FSC setup.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- ──────────────────────────────────────────────────────── -->
 <!-- SECTION: WaFD SUCCESS STORY -->
 <!-- ──────────────────────────────────────────────────────── -->
 <section id="wafd" class="section">
@@ -1356,36 +1113,9 @@ function showSection(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  const tabs = { overview:0, metrics:1, subcloud:2, engagement:3, support:4, fsc:5, wafd:6 };
+  const tabs = { overview:0, metrics:1, subcloud:2, engagement:3, support:4, wafd:5 };
   document.querySelectorAll('.nav-tab')[tabs[id]]?.classList.add('active');
   window.scrollTo(0, 0);
-}
-function toggleFSCRow(id) {
-  const d = document.getElementById('fd' + id);
-  const c = document.getElementById('fc' + id);
-  const open = d.style.display === 'block';
-  d.style.display = open ? 'none' : 'block';
-  c.style.transform = open ? 'rotate(0deg)' : 'rotate(90deg)';
-}
-function filterFSCRows(status, btn) {
-  document.querySelectorAll('.fpill').forEach(function(b) { b.classList.remove('on'); });
-  btn.classList.add('on');
-  document.querySelectorAll('[data-s]').forEach(function(r) {
-    var show = status === 'all' || r.dataset.s === status;
-    r.style.display = show ? '' : 'none';
-    if (!show) {
-      var did = r.dataset.rowid;
-      if (did) {
-        var dEl = document.getElementById('fd' + did);
-        var cEl = document.getElementById('fc' + did);
-        if (dEl) dEl.style.display = 'none';
-        if (cEl) cEl.style.transform = 'rotate(0deg)';
-      }
-    }
-  });
-  document.querySelectorAll('[data-g]').forEach(function(h) {
-    h.style.display = (status === 'all' || h.dataset.g === status) ? '' : 'none';
-  });
 }
 
 function copySOQL(btn) {
