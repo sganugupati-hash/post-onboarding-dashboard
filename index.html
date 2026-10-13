@@ -1035,544 +1035,227 @@
 <!-- ──────────────────────────────────────────────────────── -->
 <section id="fsc" class="section">
   <div class="section-header">
-    <h2>FSC Accounts — Post-Onboarding Impact</h2>
-    <p>Financial Services Cloud · FYTD Onboarding Cohort · Feb–Sep 2026 · Exec View</p>
+    <h2>FSC — Post-Onboarding Impact</h2>
+    <p>Financial Services Cloud &middot; 98 Accounts &middot; FYTD Feb&ndash;Sep 2026 &middot; Exec Summary</p>
   </div>
 
-  <div class="cards-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:24px;">
+  <!-- KPI Row -->
+  <div class="cards-grid" style="grid-template-columns:repeat(5,1fr);margin-bottom:24px;">
     <div class="metric-card">
       <div class="card-glow blue"></div>
-      <div class="card-label">FSC Accounts (FYTD)</div>
-      <div class="card-value">28</div>
-      <div class="card-delta"><span class="dot blue"></span>Industry onboarding cohort</div>
+      <div class="card-label">FSC Accounts</div>
+      <div class="card-value">98</div>
+      <div class="card-delta"><span class="dot blue"></span>FYTD onboarding cohort</div>
     </div>
     <div class="metric-card">
       <div class="card-glow green"></div>
       <div class="card-label">Completed</div>
-      <div class="card-value" style="color:var(--green);">19</div>
-      <div class="card-delta"><span class="dot green"></span>68% completion rate</div>
+      <div class="card-value" style="color:var(--green);">74</div>
+      <div class="card-delta"><span class="dot green"></span>75.5% completion rate</div>
     </div>
     <div class="metric-card">
       <div class="card-glow green"></div>
       <div class="card-label">Avg CSAT</div>
-      <div class="card-value" style="color:var(--green);">4.9</div>
-      <div class="card-delta"><span class="dot green"></span>Across rated completions</div>
+      <div class="card-value" style="color:var(--green);">4.4</div>
+      <div class="card-delta"><span class="dot green"></span>26 rated &middot; 15 perfect 5.0</div>
+    </div>
+    <div class="metric-card">
+      <div class="card-glow gold"></div>
+      <div class="card-label">SF Go Adopters</div>
+      <div class="card-value" style="color:var(--gold);">16</div>
+      <div class="card-delta"><span class="dot gold"></span>16% adopted SF Go features</div>
     </div>
     <div class="metric-card">
       <div class="card-glow blue"></div>
       <div class="card-label">In Progress</div>
-      <div class="card-value" style="color:var(--blue-light);">6</div>
-      <div class="card-delta"><span class="dot blue"></span>Active onboarding engagements</div>
+      <div class="card-value" style="color:var(--blue-light);">8</div>
+      <div class="card-delta"><span class="dot blue"></span>Active engagements</div>
     </div>
   </div>
 
-  <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
-    <button class="fpill on" onclick="filterFSCRows('all',this)">All (28)</button>
-    <button class="fpill" onclick="filterFSCRows('c',this)">&#10003; Completed (19)</button>
-    <button class="fpill" onclick="filterFSCRows('p',this)">&#9711; In Progress (6)</button>
-    <button class="fpill" onclick="filterFSCRows('x',this)">&#10005; Canceled (3)</button>
+  <!-- Status Funnel + Comparison Row -->
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:16px;">
+
+    <!-- Status Funnel -->
+    <div class="data-card">
+      <div class="dc-header">Onboarding Status Breakdown</div>
+      <div style="padding:20px 8px 8px;">
+        <!-- Segmented bar -->
+        <div style="display:flex;height:32px;border-radius:6px;overflow:hidden;margin-bottom:20px;">
+          <div style="width:75.5%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#032D60;">75.5%</div>
+          <div style="width:8.2%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#032D60;">8%</div>
+          <div style="width:13.3%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-muted);">13%</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);"></div>
+        </div>
+        <!-- Legend -->
+        <div style="display:flex;gap:24px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:var(--green);border-radius:2px;display:inline-block;"></span><span style="font-size:13px;"><strong>74</strong> <span style="color:var(--text-muted);">Completed</span></span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:var(--blue-light);border-radius:2px;display:inline-block;"></span><span style="font-size:13px;"><strong>8</strong> <span style="color:var(--text-muted);">In Progress</span></span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:rgba(255,255,255,0.15);border-radius:2px;display:inline-block;"></span><span style="font-size:13px;"><strong>13</strong> <span style="color:var(--text-muted);">Canceled</span></span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:rgba(255,255,255,0.05);border-radius:2px;display:inline-block;"></span><span style="font-size:13px;"><strong>3</strong> <span style="color:var(--text-muted);">Other</span></span></div>
+        </div>
+        <!-- CSAT breakdown -->
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
+          <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">CSAT Breakdown (26 rated)</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div style="width:80px;font-size:12px;color:var(--text-muted);">5.0 &#9733;</div>
+            <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:57.7%;height:100%;background:var(--green);border-radius:4px;"></div></div>
+            <div style="font-size:13px;font-weight:700;color:var(--green);width:32px;text-align:right;">15</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div style="width:80px;font-size:12px;color:var(--text-muted);">4.x &#9733;</div>
+            <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:26.9%;height:100%;background:var(--amber);border-radius:4px;"></div></div>
+            <div style="font-size:13px;font-weight:700;color:var(--amber);width:32px;text-align:right;">7</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:80px;font-size:12px;color:var(--text-muted);">&lt;4 &#9733;</div>
+            <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:15.4%;height:100%;background:rgba(231,76,60,0.6);border-radius:4px;"></div></div>
+            <div style="font-size:13px;font-weight:700;color:var(--red);width:32px;text-align:right;">4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FSC vs Overall Comparison -->
+    <div class="data-card">
+      <div class="dc-header">FSC vs Overall Cohort</div>
+      <div style="padding:16px 8px;">
+        <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;">Overall Cohort: 557 accounts</div>
+        <!-- Completion rate -->
+        <div style="margin-bottom:18px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:12px;color:var(--text-muted);">Completion Rate</span></div>
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="flex:1;">
+              <div style="font-size:11px;color:var(--blue-light);margin-bottom:4px;">FSC</div>
+              <div style="background:rgba(255,255,255,0.05);border-radius:4px;height:12px;overflow:hidden;"><div style="width:75.5%;height:100%;background:var(--green);border-radius:4px;"></div></div>
+              <div style="font-size:13px;font-weight:700;color:var(--green);margin-top:3px;">75.5%</div>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">Overall</div>
+              <div style="background:rgba(255,255,255,0.05);border-radius:4px;height:12px;overflow:hidden;"><div style="width:36.6%;height:100%;background:rgba(79,189,232,0.4);border-radius:4px;"></div></div>
+              <div style="font-size:13px;color:var(--text-muted);margin-top:3px;">36.6% engaged</div>
+            </div>
+          </div>
+        </div>
+        <!-- CSAT -->
+        <div style="margin-bottom:18px;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="flex:1;">
+              <div style="font-size:11px;color:var(--blue-light);margin-bottom:4px;">FSC Avg CSAT</div>
+              <div style="font-size:22px;font-weight:700;color:var(--green);">4.4</div>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">Support Cases</div>
+              <div style="font-size:13px;color:var(--text-muted);">525 total &middot; 32.8% of accounts</div>
+            </div>
+          </div>
+        </div>
+        <!-- SF Go highlight -->
+        <div style="padding:12px;background:rgba(230,168,0,0.07);border:1px solid rgba(230,168,0,0.15);border-radius:8px;">
+          <div style="font-size:11px;color:var(--gold);font-weight:600;margin-bottom:4px;">&#9733; Salesforce Go Momentum</div>
+          <div style="font-size:13px;color:var(--text-muted);">16 FSC accounts activated Salesforce Go features &mdash; highest uptake of any sub-cloud in the cohort</div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="data-card" style="padding:0;overflow:hidden;">
-    <div style="display:grid;grid-template-columns:12px 1fr 130px 80px 160px 70px 70px 24px;gap:8px;padding:10px 16px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.03);">
-      <div></div>
-      <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">Account</div>
-      <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">Specialist</div>
-      <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">CSAT</div>
-      <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">Key Feature</div>
-      <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">MAU</div>
-      <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">DAU</div>
-      <div></div>
-    </div>
+  <!-- Feature Adoption + SF Go Row -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
 
-    <!-- COMPLETED -->
-    <div class="fsc-group-hdr" data-g="c">&#10003; Completed &middot; 19 accounts</div>
+    <!-- Post-Onboarding Feature Adoption -->
+    <div class="data-card">
+      <div class="dc-header">Post-Onboarding Feature Adoption</div>
+      <div style="padding:8px;">
+        <div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;">% of 98 FSC accounts activating each feature post-onboarding</div>
 
-    <div class="fsc-row" data-s="c" data-rowid="1" onclick="toggleFSCRow(1)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">SAGE Private Wealth Group</div>
-      <div style="font-size:12px;color:var(--text-muted);">Adrianna Blazek</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Nurture Financial</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">25</div>
-      <div style="font-size:13px;color:var(--text-muted);">15</div>
-      <div><span id="fc1" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd1" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">Interaction Summaries</span><span class="fchip">Group Memberships &amp; HH</span><span class="fchip">Financial Account 360</span><span class="fchip">Document Checklist</span><span class="fchip">ARC</span><span class="fchip">Action Plans</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">1.1M</div></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:145px;font-size:12px;color:var(--text);">Financial Account 360</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
+          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">24 (24%)</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:145px;font-size:12px;color:var(--text);">Field Audit Trail</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:83%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
+          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">20 (20%)</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:145px;font-size:12px;color:var(--text);">Actionable Rel. Center</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:71%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
+          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">17 (17%)</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:145px;font-size:12px;color:var(--text);">Action Plans</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:63%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
+          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">15 (15%)</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:145px;font-size:12px;color:var(--text);">Invocable Actions</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:50%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
+          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">12 (12%)</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:145px;font-size:12px;color:var(--text);">Group Memberships &amp; HH</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:42%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
+          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">10 (10%)</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:145px;font-size:12px;color:var(--text);">Nurture Fin. Relationships</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:38%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
+          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">9 (9%)</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:145px;font-size:12px;color:var(--text);">Document Checklist</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:33%;height:100%;background:var(--blue-light);border-radius:4px;"></div></div>
+          <div style="width:48px;text-align:right;font-size:12px;color:var(--blue-light);">8 (8%)</div>
+        </div>
       </div>
     </div>
 
-    <div class="fsc-row" data-s="c" data-rowid="2" onclick="toggleFSCRow(2)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">FR Investment Group</div>
-      <div style="font-size:12px;color:var(--text-muted);">Raunak Kumar</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Pipeline Mgmt</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">7</div>
-      <div style="font-size:13px;color:var(--text-muted);">5</div>
-      <div><span id="fc2" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd2" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">Financial Account 360</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">38k</div></div>
+    <!-- Salesforce Go -->
+    <div class="data-card">
+      <div class="dc-header">Salesforce Go Adoption &nbsp;<span style="font-size:12px;font-weight:400;color:var(--gold);">16 accounts &middot; 16%</span></div>
+      <div style="padding:8px;">
+        <div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;">FSC accounts with Salesforce Go feature activations (Guided Success flows)</div>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <div style="width:180px;font-size:12px;color:var(--text);">Agentforce Compliance</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
+          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <div style="width:180px;font-size:12px;color:var(--text);">Tableau Next Dashboards</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:60%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
+          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <div style="width:180px;font-size:12px;color:var(--text);">Integration Definitions</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:48%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
+          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <div style="width:180px;font-size:12px;color:var(--text);">Frontline Compliance Assist</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:45%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
+          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <div style="width:180px;font-size:12px;color:var(--text);">Digital Lending Setup</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:45%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
+          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:180px;font-size:12px;color:var(--text);">Agentforce (FSC)</div>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:10px;overflow:hidden;"><div style="width:22%;height:100%;background:var(--gold);border-radius:4px;opacity:0.75;"></div></div>
+          <div style="width:24px;text-align:right;font-size:12px;color:var(--gold);">&#9733;</div>
+        </div>
+
+        <div style="margin-top:20px;padding:12px;background:rgba(230,168,0,0.07);border:1px solid rgba(230,168,0,0.15);border-radius:8px;">
+          <div style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:6px;">AI &amp; Compliance Leading Adoption</div>
+          <div style="font-size:12px;color:var(--text-muted);line-height:1.6;">Agentforce Compliance is the #1 Salesforce Go activation &mdash; reflecting FSC customers prioritizing AI-driven regulatory automation alongside core FSC setup.</div>
+        </div>
       </div>
     </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="3" onclick="toggleFSCRow(3)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Dina F&#246;rs&#228;kring AB</div>
-      <div style="font-size:12px;color:var(--text-muted);">Raunak Kumar</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Invocable Actions</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">502</div>
-      <div style="font-size:13px;color:var(--text-muted);">273</div>
-      <div><span id="fc3" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd3" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">ARC</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">12.6M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="4" onclick="toggleFSCRow(4)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Meerdervoort NV</div>
-      <div style="font-size:12px;color:var(--text-muted);">Hrudhay Papillu</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Document Checklist</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">93</div>
-      <div style="font-size:13px;color:var(--text-muted);">28</div>
-      <div><span id="fc4" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd4" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">Field Audit Trail</span><span class="fchip">ARC</span><span class="fchip">Document Checklist</span><span class="fchip">Deal Management</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">2.0M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="5" onclick="toggleFSCRow(5)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Arcadia Wealth Management</div>
-      <div style="font-size:12px;color:var(--text-muted);">Taylor Johnson</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Pipeline Mgmt</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">5</div>
-      <div style="font-size:13px;color:var(--text-muted);">4</div>
-      <div><span id="fc5" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd5" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">Group Memberships &amp; HH</span></div></div>
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Salesforce Go</div><div><span class="fchip go">Action Plans</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">3.9k</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="6" onclick="toggleFSCRow(6)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">India Wealth Management</div>
-      <div style="font-size:12px;color:var(--text-muted);">Taylor Johnson</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Pipeline Mgmt</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">5</div>
-      <div style="font-size:13px;color:var(--text-muted);">4</div>
-      <div><span id="fc6" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd6" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">Group Memberships &amp; HH</span></div></div>
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Salesforce Go</div><div><span class="fchip go">Action Plans</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">3.9k</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="7" onclick="toggleFSCRow(7)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Tryon and Co.</div>
-      <div style="font-size:12px;color:var(--text-muted);">Marijo Gojic</div>
-      <div style="font-weight:700;color:var(--amber);">4.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Nurture Financial</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">11</div>
-      <div style="font-size:13px;color:var(--text-muted);">6</div>
-      <div><span id="fc7" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd7" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">Interaction Summaries</span><span class="fchip">Group Memberships &amp; HH</span><span class="fchip">Financial Account 360</span><span class="fchip">Action Plans</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">400.9k</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="8" onclick="toggleFSCRow(8)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">IPC – Kassies Financial Services</div>
-      <div style="font-size:12px;color:var(--text-muted);">Shashank Shekhar</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Invocable Actions</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">1.2M</div>
-      <div style="font-size:13px;color:var(--text-muted);">113k</div>
-      <div><span id="fc8" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd8" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip na">Not yet activated</span></div></div>
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Salesforce Go</div><div><span class="fchip na">Not activated</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">855.4M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="9" onclick="toggleFSCRow(9)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">WaFd Bank</div>
-      <div style="font-size:12px;color:var(--text-muted);">Marijo Gojic</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">FAM + ARC + Action Plans</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">1.8k</div>
-      <div style="font-size:13px;color:var(--text-muted);">734</div>
-      <div><span id="fc9" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd9" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">Financial Account 360</span><span class="fchip">ARC</span><span class="fchip">Interaction Summaries</span></div></div>
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Salesforce Go</div><div><span class="fchip go">FAM</span><span class="fchip go">Action Plans</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">17.4M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="10" onclick="toggleFSCRow(10)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Oxford Annuity Services Ltd</div>
-      <div style="font-size:12px;color:var(--text-muted);">Shashank Shekhar</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Invocable Actions</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">1.2M</div>
-      <div style="font-size:13px;color:var(--text-muted);">113k</div>
-      <div><span id="fc10" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd10" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">ARC</span><span class="fchip">Document Checklist</span><span class="fchip">Deal Management</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">855.4M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="11" onclick="toggleFSCRow(11)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Tony Walker Financial</div>
-      <div style="font-size:12px;color:var(--text-muted);">Shashank Shekhar</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Nurture Financial</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">31</div>
-      <div style="font-size:13px;color:var(--text-muted);">23</div>
-      <div><span id="fc11" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd11" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">Interaction Summaries</span><span class="fchip">Group Memberships &amp; HH</span><span class="fchip">Financial Account 360</span><span class="fchip">Document Checklist</span><span class="fchip">ARC</span><span class="fchip">Action Plans</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">2.2M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="12" onclick="toggleFSCRow(12)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">The Mahoney Group</div>
-      <div style="font-size:12px;color:var(--text-muted);">Shashank Shekhar</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Pipeline Mgmt</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">114</div>
-      <div style="font-size:13px;color:var(--text-muted);">76</div>
-      <div><span id="fc12" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd12" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Salesforce Go</div><div><span class="fchip go">Agentforce</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">1.5M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="13" onclick="toggleFSCRow(13)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Ruffer LLP</div>
-      <div style="font-size:12px;color:var(--text-muted);">Hrudhay Papillu</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">Nurture Financial</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">145</div>
-      <div style="font-size:13px;color:var(--text-muted);">55</div>
-      <div><span id="fc13" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd13" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">Field Audit Trail</span><span class="fchip">ARC</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">5.5M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="14" onclick="toggleFSCRow(14)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Boku</div>
-      <div style="font-size:12px;color:var(--text-muted);">Shashank Shekhar</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Pipeline Mgmt</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">148</div>
-      <div style="font-size:13px;color:var(--text-muted);">85</div>
-      <div><span id="fc14" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd14" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">1.1M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="15" onclick="toggleFSCRow(15)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Arbuthnot Latham &amp; Co.</div>
-      <div style="font-size:12px;color:var(--text-muted);">Hrudhay Papillu</div>
-      <div style="font-weight:700;color:var(--green);">5.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Invocable Actions</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">768</div>
-      <div style="font-size:13px;color:var(--text-muted);">347</div>
-      <div><span id="fc15" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd15" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip na">Not yet activated</span></div></div>
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Salesforce Go</div><div><span class="fchip na">Not activated</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">18.1M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="16" onclick="toggleFSCRow(16)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Delta Dental of California</div>
-      <div style="font-size:12px;color:var(--text-muted);">Taylor Johnson</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">Invocable Actions</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">790</div>
-      <div style="font-size:13px;color:var(--text-muted);">397</div>
-      <div><span id="fc16" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd16" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip na">Not yet activated</span></div></div>
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Salesforce Go</div><div><span class="fchip na">Not activated</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">12.6M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="17" onclick="toggleFSCRow(17)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">IA Private Wealth – Finandicap</div>
-      <div style="font-size:12px;color:var(--text-muted);">Akash Dansinghani</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">Nurture Financial</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">3</div>
-      <div style="font-size:13px;color:var(--text-muted);">3</div>
-      <div><span id="fc17" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd17" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip na">Not yet activated</span></div></div>
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Salesforce Go</div><div><span class="fchip na">Not activated</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">43.1k</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="18" onclick="toggleFSCRow(18)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Keyridge Asset Management</div>
-      <div style="font-size:12px;color:var(--text-muted);">Hrudhay Papillu</div>
-      <div style="font-weight:700;color:var(--amber);">4.0</div>
-      <div style="font-size:12px;color:var(--text-muted);">Invocable Actions</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">1.2M</div>
-      <div style="font-size:13px;color:var(--text-muted);">113k</div>
-      <div><span id="fc18" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd18" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Post-Onboarding Features</div><div><span class="fchip">Field Audit Trail</span><span class="fchip">ARC</span><span class="fchip">Interaction Summaries</span></div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">855.4M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="c" data-rowid="19" onclick="toggleFSCRow(19)">
-      <div class="fsc-dot c"></div>
-      <div style="font-size:13px;font-weight:600;">Concora Credit Inc.</div>
-      <div style="font-size:12px;color:var(--text-muted);">Ashley Weihe</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">Invocable Actions</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">&#8212;</div>
-      <div style="font-size:13px;color:var(--text-muted);">&#8212;</div>
-      <div><span id="fc19" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd19" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Note</div><div style="font-size:12px;color:var(--text-muted);">Adoption metrics pending — case completed, usage data not yet available.</div></div>
-      </div>
-    </div>
-
-    <!-- IN PROGRESS -->
-    <div class="fsc-group-hdr" data-g="p">&#9711; In Progress &middot; 6 accounts</div>
-
-    <div class="fsc-row" data-s="p" data-rowid="20" onclick="toggleFSCRow(20)">
-      <div class="fsc-dot p"></div>
-      <div style="font-size:13px;font-weight:600;">DiversiFi Capital</div>
-      <div style="font-size:12px;color:var(--text-muted);">Taylor Johnson</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">Nurture Financial</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">31</div>
-      <div style="font-size:13px;color:var(--text-muted);">28</div>
-      <div><span id="fc20" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd20" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Status</div><div style="font-size:12px;color:var(--blue-light);">Onboarding in progress</div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">1.0M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="p" data-rowid="21" onclick="toggleFSCRow(21)">
-      <div class="fsc-dot p"></div>
-      <div style="font-size:13px;font-weight:600;">Golconda Partners</div>
-      <div style="font-size:12px;color:var(--text-muted);">Taylor Johnson</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">Nurture Financial</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">34</div>
-      <div style="font-size:13px;color:var(--text-muted);">16</div>
-      <div><span id="fc21" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd21" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Status</div><div style="font-size:12px;color:var(--blue-light);">Onboarding in progress</div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">212.4k</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="p" data-rowid="22" onclick="toggleFSCRow(22)">
-      <div class="fsc-dot p"></div>
-      <div style="font-size:13px;font-weight:600;">M A Ward Financial</div>
-      <div style="font-size:12px;color:var(--text-muted);">Shashank Shekhar</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">Invocable Actions</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">1.2M</div>
-      <div style="font-size:13px;color:var(--text-muted);">113k</div>
-      <div><span id="fc22" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd22" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Status</div><div style="font-size:12px;color:var(--amber);">Waiting on Customer — Need More Information</div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">855.4M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="p" data-rowid="23" onclick="toggleFSCRow(23)">
-      <div class="fsc-dot p"></div>
-      <div style="font-size:13px;font-weight:600;">Digitality Consulting</div>
-      <div style="font-size:12px;color:var(--text-muted);">Anna Amato</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">Nurture Financial</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">5</div>
-      <div style="font-size:13px;color:var(--text-muted);">3</div>
-      <div><span id="fc23" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd23" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Status</div><div style="font-size:12px;color:var(--blue-light);">Onboarding in progress</div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">56.6k</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="p" data-rowid="24" onclick="toggleFSCRow(24)">
-      <div class="fsc-dot p"></div>
-      <div style="font-size:13px;font-weight:600;">&#268;esk&#225; spo&#345;itelna, a.s.</div>
-      <div style="font-size:12px;color:var(--text-muted);">Hrudhay Papillu</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">Invocable Actions</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">6.2k</div>
-      <div style="font-size:13px;color:var(--text-muted);">3.0k</div>
-      <div><span id="fc24" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd24" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Status</div><div style="font-size:12px;color:var(--blue-light);">Onboarding in progress</div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">436M</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="p" data-rowid="25" onclick="toggleFSCRow(25)">
-      <div class="fsc-dot p"></div>
-      <div style="font-size:13px;font-weight:600;">BCS – Banco de Cr&#233;dito do Sul</div>
-      <div style="font-size:12px;color:var(--text-muted);">Anna Amato</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">Pipeline Mgmt</div>
-      <div style="font-size:13px;font-weight:600;color:var(--blue-light);">6</div>
-      <div style="font-size:13px;color:var(--text-muted);">4</div>
-      <div><span id="fc25" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd25" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Status</div><div style="font-size:12px;color:var(--blue-light);">Onboarding in progress</div></div>
-        <div style="margin-left:auto;text-align:right;"><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Total Transactions</div><div style="font-size:20px;font-weight:700;color:var(--blue-light);">62.9k</div></div>
-      </div>
-    </div>
-
-    <!-- CANCELED -->
-    <div class="fsc-group-hdr" data-g="x">&#10005; Canceled &middot; 3 accounts</div>
-
-    <div class="fsc-row" data-s="x" data-rowid="26" onclick="toggleFSCRow(26)">
-      <div class="fsc-dot x"></div>
-      <div style="font-size:13px;font-weight:600;color:var(--text-muted);">Republic Finance</div>
-      <div style="font-size:12px;color:var(--text-muted);">Shashank Shekhar</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:13px;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:13px;color:var(--text-muted);">&#8212;</div>
-      <div><span id="fc26" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd26" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Reason</div><div style="font-size:12px;color:var(--text-muted);">Customer Withdrew</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="x" data-rowid="27" onclick="toggleFSCRow(27)">
-      <div class="fsc-dot x"></div>
-      <div style="font-size:13px;font-weight:600;color:var(--text-muted);">GreenState Credit Union</div>
-      <div style="font-size:12px;color:var(--text-muted);">Shashank Shekhar</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:13px;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:13px;color:var(--text-muted);">&#8212;</div>
-      <div><span id="fc27" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd27" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Reason</div><div style="font-size:12px;color:var(--text-muted);">Customer Withdrew</div></div>
-      </div>
-    </div>
-
-    <div class="fsc-row" data-s="x" data-rowid="28" onclick="toggleFSCRow(28)">
-      <div class="fsc-dot x"></div>
-      <div style="font-size:13px;font-weight:600;color:var(--text-muted);">Holding RappiPay S.A.S.</div>
-      <div style="font-size:12px;color:var(--text-muted);">&#8212;</div>
-      <div style="font-weight:700;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:12px;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:13px;color:var(--text-muted);">&#8212;</div>
-      <div style="font-size:13px;color:var(--text-muted);">&#8212;</div>
-      <div><span id="fc28" class="fsc-chev">&#8250;</span></div>
-    </div>
-    <div id="fd28" class="fsc-detail" style="display:none;">
-      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-        <div><div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Reason</div><div style="font-size:12px;color:var(--text-muted);">Redirected Request</div></div>
-      </div>
-    </div>
-
   </div>
+
 </section>
 
 <!-- ──────────────────────────────────────────────────────── -->
